@@ -22,6 +22,7 @@ angular.module("gallery", [])
 	};
 
 	$scope.closeItem = function() {
+		imgZoom.src = '';
 		overlay.style.display = 'none';
 		imgZoom.style.display = 'none';
 	}
