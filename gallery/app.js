@@ -14,11 +14,16 @@ angular.module("gallery", [])
 	{ name: "foto 10", url: "img/foto10.jpg" },
 	];
 
-	$scope.zoom = function() {
-
+	$scope.openItem = function(item) {
 		overlay.style.display = 'block';
 		imgZoom.style.display = 'block';
+		imgZoom.src = item;
 
 	};
+
+	$scope.closeItem = function() {
+		overlay.style.display = 'none';
+		imgZoom.style.display = 'none';
+	}
 
 });

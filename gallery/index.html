@@ -10,8 +10,8 @@
 <body ng-controller='firstCtrl'>
 
 	<div id="overlay"></div>
-	<div class='container' ng-repeat='Img in arrImg'><img ng-click='zoom()' id="img" src="{{Img.url}}" alt="{{Img.name}}"></div>
-	<img  id="imgZoom" src="{{}}" alt="">
+	<div class='container' ng-repeat='Img in arrImg'><img ng-click='openItem(Img.url)' id="img" src="{{Img.url}}" alt="{{Img.name}}"></div>
+	<img ng-click='closeItem()' id="imgZoom" src="" alt="">
 
 </body>
 </html>
