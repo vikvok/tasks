@@ -1,6 +1,13 @@
 angular.module("gallery", [])
 .controller("firstCtrl", function($scope){
 
+	$scope.overlay = false;
+	$scope.imgZoom = false;
+	$scope.gallery = true;
+	$scope.favorites = false;
+	
+	$scope.data = {visible : false};
+
 	$scope.arrImg = [
 	{ name: "foto 1", url: "img/foto01.jpg" },
 	{ name: "foto 2", url: "img/foto02.jpg" },
@@ -14,17 +21,27 @@ angular.module("gallery", [])
 	{ name: "foto 10", url: "img/foto10.jpg" },
 	];
 
+	$scope.openGallery = function() {
+		$scope.gallery = true;
+		$scope.favorites = false;
+	};
+
+	$scope.openFavorites = function() {
+		$scope.gallery = false;
+		$scope.favorites = true;
+	};
+
 	$scope.openItem = function(item) {
-		overlay.style.display = 'block';
-		imgZoom.style.display = 'block';
-		imgZoom.src = item;
+		$scope.overlay = true;
+		$scope.imgZoom = true;
+		$scope.item = item;
+
 
 	};
 
 	$scope.closeItem = function() {
-		imgZoom.src = '';
-		overlay.style.display = 'none';
-		imgZoom.style.display = 'none';
-	}
+		$scope.overlay = false;
+		$scope.imgZoom = false;
+	};
 
 });
