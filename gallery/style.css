@@ -34,6 +34,10 @@ body {
 }
 
 #imgZoom {
+<<<<<<< HEAD
+=======
+	/*display: none;*/
+>>>>>>> origin/master
 	position: fixed;
 	top: 5%;
 	left: 10%;
@@ -43,6 +47,10 @@ body {
 }
 
 #overlay {
+<<<<<<< HEAD
+=======
+	/*display: none;*/
+>>>>>>> origin/master
 	background-color: #000000;
 	position: fixed;
 	top: 0px;

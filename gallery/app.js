@@ -21,6 +21,7 @@ angular.module("gallery", [])
 	{ name: "foto 10", url: "img/foto10.jpg" },
 	];
 
+<<<<<<< HEAD
 	$scope.openGallery = function() {
 		$scope.gallery = true;
 		$scope.favorites = false;
@@ -36,12 +37,34 @@ angular.module("gallery", [])
 		$scope.imgZoom = true;
 		$scope.item = item;
 
+=======
+	/*$scope.openItem = function(item) {
+		overlay.style.display = 'block';
+		imgZoom.style.display = 'block';
+		imgZoom.src = item;
+>>>>>>> origin/master
 
 	};
 
 	$scope.closeItem = function() {
+<<<<<<< HEAD
 		$scope.overlay = false;
 		$scope.imgZoom = false;
+=======
+		imgZoom.src = '';
+		overlay.style.display = 'none';
+		imgZoom.style.display = 'none';
+	}*/
+
+	$scope.imageIndex = -1;
+
+	$scope.openItem = function(idx) {
+		$scope.imageIndex = idx;
+	};
+
+	$scope.closeItem = function() {
+		$scope.imageIndex = -1;
+>>>>>>> origin/master
 	};
 
 });
