@@ -8,12 +8,12 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body ng-controller='firstCtrl'>
-
+<!-- Menu -->
 	<div id="menu">
 		<div><a href="#"><button ng-click='openGallery()'>Галерея</button></a></div>
 		<div><a href="#"><button ng-click='openFavorites()'>Избранное</button></a></div>
 	</div>
-
+<!-- Gallery -->
 	<div ng-show='gallery' id="gallery">
 		<div id="overlay" ng-if="imageIndex != -1"></div>
 		<div class='container' ng-repeat='Img in arrImg'>
@@ -23,7 +23,7 @@
 		</div>
 		<img ng-click='closeItem()' id="imgZoom" ng-src="{{arrImg[imageIndex].url}}" alt="" ng-if="imageIndex != -1">
 	</div>
-
+<!-- Favorites -->
 	<div ng-show='favorites' id="favorites">
 		<div id="overlay" ng-if="imageIndex != -1"></div>
 		<div class='container' ng-repeat='Img in arrImg | filter: arrImg.favorite = true'>
@@ -32,7 +32,7 @@
 		</div>
 		<img ng-click='closeItem()' id="imgZoom" ng-src="{{arrImg[imageIndex].url}}" alt="" ng-if="imageIndex != -1">
 	</div>
-
+<!-- Footer -->
 	<div id="footer"></div>
 
 </body>
