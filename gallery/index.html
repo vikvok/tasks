@@ -18,7 +18,7 @@
 		<div id="overlay" ng-if="imageIndex != -1"></div>
 		<div class='container' ng-repeat='Img in arrImg'>
 			<img ng-click='openItem($index)' id="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
-			<div><input type="checkbox" ng-model="data.visible"></div>
+			<div><input type="checkbox" ng-model="check" ng-change="change($index)"></div>
 			<div>{{Img.name}}</div>
 		</div>
 		<img ng-click='closeItem()' id="imgZoom" ng-src="{{arrImg[imageIndex].url}}" alt="" ng-if="imageIndex != -1">
@@ -26,7 +26,7 @@
 
 	<div ng-show='favorites' id="favorites">
 		<div id="overlay" ng-if="imageIndex != -1"></div>
-		<div class='container' ng-repeat='Img in arrImg'>
+		<div class='container' ng-repeat='Img in arrImg | filter: arrImg.favorite = true'>
 			<img ng-click='openItem($index)' id="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
 			<div>{{Img.name}}</div>
 		</div>
@@ -34,7 +34,6 @@
 	</div>
 
 	<div id="footer"></div>
-
 
 </body>
 </html>
