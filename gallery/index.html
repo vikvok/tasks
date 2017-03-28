@@ -14,26 +14,25 @@
 		<div><a href="#"><button ng-click='openFavorites()'>Избранное</button></a></div>
 	</div>
 <!-- Gallery -->
-	<div ng-show='gallery' id="gallery">
-		<div id="overlay" ng-if="imageIndex != -1"></div>
+	<div ng-if='!favorites' id="gallery">
+		<div id="overlay" ng-show='overlay'></div>
 		<div class='container' ng-repeat='Img in arrImg'>
-			<img ng-click='openItem($index)' id="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
-			<div><input type="checkbox" ng-model="check" ng-change="change($index)"></div>
+			<img ng-click='openItem(Img.url)' class="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
+			<div><input type="checkbox" ng-model="Img.favorite"></div>
 			<div>{{Img.name}}</div>
 		</div>
-		<img ng-click='closeItem()' id="imgZoom" ng-src="{{arrImg[imageIndex].url}}" alt="" ng-if="imageIndex != -1">
+		<img ng-click='closeItem()' ng-show='overlay' id="imgZoom"  ng-src="{{item}}" alt="">
 	</div>
 <!-- Favorites -->
-	<div ng-show='favorites' id="favorites">
-		<div id="overlay" ng-if="imageIndex != -1"></div>
-		<div class='container' ng-repeat='Img in arrImg | filter: arrImg.favorite = true'>
-			<img ng-click='openItem($index)' id="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
+	<div ng-if='favorites' id="favorites">
+		<div id="overlay" ng-show='overlay'></div>
+		<div class='container' ng-repeat='Img in arrImg' ng-if="Img.favorite">
+			<img ng-click='openItem(Img.url)' class="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
 			<div>{{Img.name}}</div>
 		</div>
-		<img ng-click='closeItem()' id="imgZoom" ng-src="{{arrImg[imageIndex].url}}" alt="" ng-if="imageIndex != -1">
+		<img ng-click='closeItem()' ng-show='overlay' id="imgZoom"  ng-src="{{item}}" alt="">
 	</div>
 <!-- Footer -->
 	<div id="footer"></div>
-
 </body>
 </html>
