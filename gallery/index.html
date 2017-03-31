@@ -22,9 +22,9 @@
 			<div><input type="checkbox" ng-model="Img.favorite"></div>
 			<div>{{Img.name}}</div>
 		</div>
-		<div  ng-show='overlay' id="imgZoom">
+		<div ng-show='overlay' id="imgZoom">
 			<i  ng-click='prew()' class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
-			<img ng-src="{{item}}" alt="">
+			<img ng-src="{{item}}" ng-click='closeItem()' alt="">
 			<i ng-click='next()' class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
 		</div>
 	</div>
@@ -35,9 +35,9 @@
 			<img ng-click='openItem(Img.url)' class="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
 			<div>{{Img.name}}</div>
 		</div>
-		<div ng-click='closeItem()' ng-show='overlay' id="imgZoom">
+		<div ng-show='overlay' id="imgZoom">
 			<i ng-click='next()' class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
-			<img ng-src="{{item}}" alt="">
+			<img ng-src="{{item}}" ng-click='closeItem()' alt="">
 			<i ng-click='prew()' class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
 		</div>
 	</div>
