@@ -37,9 +37,10 @@
 			<div>{{Img.name}}</div>
 		</div>
 		<div ng-show='overlay' id="imgZoom">
-			<i ng-click='next()' class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
 			<img ng-src="{{item}}" ng-click='closeItem()' alt="">
-			<i ng-click='prew()' class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+				<i ng-click='next()' class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
+				<i ng-click='prew()' class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+			</img>
 		</div>
 	</div>
 <!-- Footer -->
