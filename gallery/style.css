@@ -35,6 +35,7 @@ body {
 #imgZoom {
 	position: fixed;
 	top: 5%;
+	bottom: 5%;
 	left: 10%;
 	max-height: 90%;
 	max-width: 80%;
