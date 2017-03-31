@@ -6,6 +6,7 @@
 	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'></script>
 	<script src='app.js'></script>
 	<link rel="stylesheet" href="style.css">
+	<script src="https://use.fontawesome.com/6c41b0d16c.js"></script>
 </head>
 <body ng-controller='firstCtrl'>
 <!-- Menu -->
@@ -17,11 +18,15 @@
 	<div ng-if='!favorites' id="gallery">
 		<div id="overlay" ng-show='overlay'></div>
 		<div class='container' ng-repeat='Img in arrImg'>
-			<img ng-click='openItem(Img.url)' class="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
+			<img ng-click='openItem(Img.url, $index)' class="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
 			<div><input type="checkbox" ng-model="Img.favorite"></div>
 			<div>{{Img.name}}</div>
 		</div>
-		<img ng-click='closeItem()' ng-show='overlay' id="imgZoom"  ng-src="{{item}}" alt="">
+		<div  ng-show='overlay' id="imgZoom">
+			<i  ng-click='prew()' class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
+			<img ng-src="{{item}}" alt="">
+			<i ng-click='next()' class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+		</div>
 	</div>
 <!-- Favorites -->
 	<div ng-if='favorites' id="favorites">
@@ -30,7 +35,11 @@
 			<img ng-click='openItem(Img.url)' class="img" ng-src="{{Img.url}}" alt="{{Img.name}}">
 			<div>{{Img.name}}</div>
 		</div>
-		<img ng-click='closeItem()' ng-show='overlay' id="imgZoom"  ng-src="{{item}}" alt="">
+		<div ng-click='closeItem()' ng-show='overlay' id="imgZoom">
+			<i ng-click='next()' class="fa fa-chevron-circle-left fa-2x" aria-hidden="true"></i>
+			<img ng-src="{{item}}" alt="">
+			<i ng-click='prew()' class="fa fa-chevron-circle-right fa-2x" aria-hidden="true"></i>
+		</div>
 	</div>
 <!-- Footer -->
 	<div id="footer"></div>

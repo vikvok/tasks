@@ -3,6 +3,7 @@ angular.module("gallery", [])
 
 	$scope.overlay = false;
 	$scope.favorites = false;
+	$scope.item;
 	
 	$scope.arrImg = [
 	{ name: "foto 1", url: "img/foto01.jpg" },
@@ -25,13 +26,25 @@ angular.module("gallery", [])
 		$scope.favorites = true;
 	};
 
-	$scope.openItem = function(item) {
+	$scope.openItem = function(item, index) {
 		$scope.overlay = true;
 		$scope.item = item;
+		$scope.index = index;
 	};
 
 	$scope.closeItem = function() {
 		$scope.overlay = false;
 	};
+
+	$scope.next = function() {
+		$scope.item = $scope.arrImg[$scope.index + 1].url;
+		console.log($scope.item);
+	};
+
+	$scope.prew = function() {
+		$scope.item = $scope.arrImg[$scope.index - 1].url;
+		console.log($scope.item);
+	};
+
 
 });
