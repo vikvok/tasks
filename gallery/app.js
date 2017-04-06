@@ -37,13 +37,19 @@ angular.module("gallery", [])
 	};
 
 	$scope.next = function() {
-		$scope.item = $scope.arrImg[$scope.index + 1].url;
-		console.log($scope.item);
+		if ($scope.index < ($scope.arrImg.length -1)) {
+		$scope.item = $scope.arrImg[++$scope.index].url;
+		} else {
+			console.log('Последнее изображение');
+		};
 	};
 
 	$scope.prew = function() {
-		$scope.item = $scope.arrImg[$scope.index - 1].url;
-		console.log($scope.item);
+		if ($scope.index < $scope.arrImg.length && $scope.index > 0) {
+		$scope.item = $scope.arrImg[--$scope.index].url;
+		} else {
+			console.log('Последнее изображение');
+		};
 	};
 
 
