@@ -11,16 +11,23 @@
 	<a href="#"><button>Send</button></a>
 
 	<script>
+
+	var authData = {
+		user: 'Joe',
+		password: '123'
+	};
+
 		$(document).ready(function(){
 
 			$(":button").click(function(){
-				$.ajax({
-					url: "index.html",
-					success: function(data){
+				var p = $.ajax({
+					method: 'get',
+					url: "/auth",
+					data: authData,
+					success: function(data){     
 						alert( data );
 					}
 				});
-
 			});
 		});
 	</script>
