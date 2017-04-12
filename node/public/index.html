@@ -8,22 +8,24 @@
 	<h3>INDEX</h3>
 	<p>Node-static server</p>
 	<a href="green1.jpg">Greenland</a> <br><br>
+	<label>Name </label><input id="name" type="text"><br>
+	<label>Password </label><input id="pass" type="text"><br>
 	<a href="#"><button>Send</button></a>
 
 	<script>
-
-	var authData = {
-		user: 'Joe',
-		password: '123'
-	};
+		var name, pass;
+		var authData;
 
 		$(document).ready(function(){
-
 			$(":button").click(function(){
-				var p = $.ajax({
+				name = $('#name').val();
+				pass = $('#pass').val();
+				authData = {user: name, password: +pass};
+				console.log(authData);
+				$.ajax({
 					method: 'get',
 					url: "/auth",
-					data: authData,
+					data: name,
 					success: function(data){     
 						alert( data );
 					}
