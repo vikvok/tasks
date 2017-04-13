@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script>
+	
+var dataArray = [ 
+	{login: "joeblack", email: "joe11@mail.com"}, 
+	{login: "ksmith", email: "ksmith@mail.com"},
+	];
+
+// {joeblack: "joe11@mail.com", ksmith: "ksmith@mail.com", ........ }
+
+var dataObject = convertToObject(dataArray);
+
+function convertToObject(arr) {
+	var login, email, newObj = {};
+	for (var i = 0; i < arr.lenght; i++) {
+		login = arr[i].login;
+		email = arr[i].email;
+		newObj[login] = email;
+	}
+	return newObj;
+}
+console.log(dataObject);
+</script>
+
+</body>
+</html>
