@@ -19,7 +19,7 @@ var dataObject = convertToObject(dataArray);
 
 function convertToObject(arr) {
 	var login, email, newObj = {};
-	for (var i = 0; i < arr.lenght; i++) {
+	for (var i = 0; i < arr.length; i++) {
 		login = arr[i].login;
 		email = arr[i].email;
 		newObj[login] = email;
@@ -27,6 +27,19 @@ function convertToObject(arr) {
 	return newObj;
 }
 console.log(dataObject);
+
+var dataUnArray = unConvertToObject(dataObject);
+
+function unConvertToObject(arr) {
+	var login, email, mail, newObj = [], newArr = {};
+	for (var key in arr) {
+		login = key;
+		email = arr[key];
+		newObj.push({login, email});
+	}
+	return newObj;
+}
+console.log(dataUnArray);
 </script>
 
 </body>
