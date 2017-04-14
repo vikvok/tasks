@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Node static</title>
+</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<body>
+	<h3>INDEX</h3>
+	<p>Node-static server</p>
+	<a href="green1.jpg">Greenland</a> <br><br>
+	<label>Name </label><input id="name" type="text" value="Max"><br>
+	<label>Password </label><input id="pass" type="text" value="123"><br>
+	<a href="#"><button id="send">Send</button></a>
+	<a href="#"><button id="register">Register</button></a>
+
+	<script>
+		var name, pass;
+		var authData;
+
+		$(document).ready(function(){
+			$("#send").click(function(){
+				name = $('#name').val();
+				pass = $('#pass').val();
+				authData = {user: name, password: pass};
+				$.ajax({
+					method: 'get',
+					url: "/auth",
+					data: authData,
+				success: function(data){     
+						alert( data );
+					}
+				});
+			});
+
+			$('#register').click(function(){
+				name = $('#name').val();
+				pass = $('#pass').val();
+				regData = {user: name, password: pass};
+				$.ajax({
+					url: '/reg',
+					data: regData,
+					success: function(data) {
+						alert( data );
+					}
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>
