@@ -13,11 +13,12 @@
 <script>
 	
 			$('#click').click(function(){
-				var mes = console.log('Response')
 				console.log('Request');
 				$.ajax({
-					url: 'index.html',
-					success: mes
+					url: '/req1',
+					success: function() {
+						console.log('Response')
+					}
 					
 				});
 			});
