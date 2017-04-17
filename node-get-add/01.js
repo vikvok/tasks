@@ -22,9 +22,18 @@ function reqProc(req, resp) {
 
 switch(pathName) {
 		case '/req1': 
-			resp.writeHead(200,{'content-type':'text'});
+		 setTimeout(function() {
+			resp.writeHead(200,{'content-type':'text/plain'});
 			resp.write('go');
 			resp.end();
+		 }, 1500);
+		 break;
+		case '/req2': 
+		 setTimeout(function() {
+			resp.writeHead(200,{'content-type':'text/plain'});
+			resp.write('go');
+			resp.end();
+		 }, 500);
 			break;
 		default:
 			fileServer.serve(req, resp);

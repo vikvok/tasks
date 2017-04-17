@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Node static</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+</head>
+<body>
+<h3>INDEX</h3>
+<p>Node-static server</p>
+<a href="green1.jpg">Greenland</a>
+<button id="req1">Req1</button>
+<button id="req2">Req2</button>
+<button id="req3">Req3</button>
+	
+<script>
+	$('#req1').click(function(){
+		req1();
+	});
+	$('#req2').click(function(){
+		req2();
+	});
+	$('#req3').click(function(){
+		$.when(req1(), req2()).then( resDone );
+	});
+
+function req1() {
+		console.log('Request');
+	return $.ajax({
+		url: '/req1',
+		success: function() {
+			console.log('Response')
+		}					
+	});
+}
+function req2() {
+		console.log('Request2');
+	return $.ajax({
+		url: '/req2',
+		success: function() {
+			console.log('Response2')
+		}		
+	});
+}
+function resDone() {
+	alert('Finish');
+}
+</script>
+	
+</body>
+</html>

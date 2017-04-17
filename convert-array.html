@@ -40,6 +40,18 @@ function unConvertToObject(arr) {
 	return newObj;
 }
 console.log(dataUnArray);
+
+
+var t = getQTable('TABLE'),
+		data = [
+			{SKU: 'T001', NAME: 'Green Tea', PRICE: '$1', CLASS: 'GTea'},
+			{SKU: 'T002', NAME: 'Black Tea', PRICE: '$1', CLASS: 'BTea'},
+			{SKU: 'T003', NAME: 'White Tea', PRICE: '$1', CLASS: 'WTea'},
+			{SKU: 'C001', NAME: 'Coffe', PRICE: '$2', CLASS: 'Cof'},
+			{SKU: 'C002', NAME: 'Double Coffe', PRICE: '$3', CLASS: 'Cof'}
+		];
+t.import(data, null, true);
+reset('BUTTONS','SETVALUE');
 </script>
 
 </body>
