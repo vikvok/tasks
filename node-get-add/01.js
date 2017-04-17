@@ -10,6 +10,8 @@ fileServer=new stat.Server('./public');
 http.createServer(reqProc).listen(8080);
 console.log('node-static server is running at port 8080');
 
+var db = ['Cat','Lynx','Tiger','Lion','Leopard','Panther'];
+//var db = 'Lion';
 function reqProc(req, resp) {
 
 	var u = req.url;
@@ -21,22 +23,34 @@ function reqProc(req, resp) {
 
 
 switch(pathName) {
-		case '/req1': 
-		 setTimeout(function() {
+		case '/add':
+			var wordCheck = checkDb(query, db); 
 			resp.writeHead(200,{'content-type':'text/plain'});
-			resp.write('go');
+			if (!wordCheck) {
+				db.push(query);
+				resp.write('Word added');
+			} else {
+				resp.write('Busy Word')
+			}
 			resp.end();
-		 }, 1500);
 		 break;
-		case '/req2': 
-		 setTimeout(function() {
+		case '/get': 
 			resp.writeHead(200,{'content-type':'text/plain'});
-			resp.write('go');
+			var s = db.join('&');
+			resp.write(s);
 			resp.end();
-		 }, 500);
 			break;
 		default:
 			fileServer.serve(req, resp);
 			break;
+	}
+}
+
+function checkDb(word, db) {
+	for(var i = 0; i < db.length; i++) {
+	 var a = db[i].toUpperCase();
+	 var b = word.toUpperCase();
+		if (a == b) {
+			return true;}
 	}
 }

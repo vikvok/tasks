@@ -2,47 +2,53 @@
 <html>
 <head>
 	<title>Node static</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 </head>
 <body>
 <h3>INDEX</h3>
 <p>Node-static server</p>
-<a href="green1.jpg">Greenland</a>
-<button id="req1">Req1</button>
-<button id="req2">Req2</button>
-<button id="req3">Req3</button>
+<a href="green1.jpg">Greenland</a><br><br>
+<input type="text" id="word" value="Lion">
+<button id="add">Add</button>
+<button id="get">Get</button>
 	
 <script>
-	$('#req1').click(function(){
-		req1();
+	$('#add').click(function(){
+		add();
 	});
-	$('#req2').click(function(){
-		req2();
+	$('#get').click(function(){
+		$.when(get()).then(resDone);
 	});
-	$('#req3').click(function(){
-		$.when(req1(), req2()).then( resDone );
-	});
+	//	$.when(req1(), req2()).then( resDone );
+var addData, getData, x;
 
-function req1() {
-		console.log('Request');
+function add() {
+		console.log('add send');
+		addData = $('#word').val();
 	return $.ajax({
-		url: '/req1',
-		success: function() {
-			console.log('Response')
+		url: '/add',
+		data: addData,
+		success: function(data) {
+			alert(data);
 		}					
 	});
 }
-function req2() {
-		console.log('Request2');
+function get() {
+		console.log('get send');
 	return $.ajax({
-		url: '/req2',
-		success: function() {
-			console.log('Response2')
+		url: '/get',
+	//	data: getData,
+		success: function(data) {
+			getData = data;
+			console.log('get ', getData);
 		}		
 	});
 }
 function resDone() {
-	alert('Finish');
+	 x = getData.split('&');
+ return console.log('db ', x);
+
 }
 </script>
 	
