@@ -18,10 +18,8 @@
 		add();
 	});
 	$('#get').click(function(){
-		$.when(get()).then(resDone);
+		get();
 	});
-	//	$.when(req1(), req2()).then( resDone );
-var getData;
 
 function add() {
 		console.log('add send');
@@ -38,17 +36,10 @@ function get() {
 		console.log('get send');
 	return $.ajax({
 		url: '/get',
-	//	data: getData,
 		success: function(data) {
-			getData = data;
-			console.log('get ', getData);
+			console.log('get ', data);
 		}		
 	});
-}
-function resDone(x) {
-	var x = getData;
- return console.log('db ', x);
-
 }
 </script>
 	
