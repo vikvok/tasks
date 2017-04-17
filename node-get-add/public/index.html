@@ -22,8 +22,8 @@
 	});
 
 function add() {
-		console.log('add send');
-		var addData = $('#word').val();
+	console.log('add send');
+	var addData = $('#word').val();
 	return $.ajax({
 		url: '/add',
 		data: addData,
@@ -33,7 +33,7 @@ function add() {
 	});
 }
 function get() {
-		console.log('get send');
+	console.log('get send');
 	return $.ajax({
 		url: '/get',
 		success: function(data) {
