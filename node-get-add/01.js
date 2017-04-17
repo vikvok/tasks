@@ -10,7 +10,7 @@ fileServer=new stat.Server('./public');
 http.createServer(reqProc).listen(8080);
 console.log('node-static server is running at port 8080');
 
-var db = ['Cat','Lynx','Tiger','Lion','Leopard','Panther'];
+var db = ["Cat","Lynx","Tiger","Lion","Leopard","Panther"];
 //var db = 'Lion';
 function reqProc(req, resp) {
 
@@ -35,8 +35,8 @@ switch(pathName) {
 			resp.end();
 		 break;
 		case '/get': 
-			resp.writeHead(200,{'content-type':'text/plain'});
-			var s = db.join('&');
+			resp.writeHead(200,{'content-type':'application/json'});
+			var s = JSON.stringify(db); //.join('&');
 			resp.write(s);
 			resp.end();
 			break;

@@ -21,11 +21,11 @@
 		$.when(get()).then(resDone);
 	});
 	//	$.when(req1(), req2()).then( resDone );
-var addData, getData, x;
+var getData;
 
 function add() {
 		console.log('add send');
-		addData = $('#word').val();
+		var addData = $('#word').val();
 	return $.ajax({
 		url: '/add',
 		data: addData,
@@ -45,8 +45,8 @@ function get() {
 		}		
 	});
 }
-function resDone() {
-	 x = getData.split('&');
+function resDone(x) {
+	var x = getData;
  return console.log('db ', x);
 
 }
